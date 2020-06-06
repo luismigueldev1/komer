@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "237407720302",
+    "firebase_url": "https://komerapp-2bf77.firebaseio.com",
+    "project_id": "komerapp-2bf77",
+    "storage_bucket": "komerapp-2bf77.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:237407720302:android:9c133f5ca01fffcd5ee77f",
+        "android_client_info": {
+          "package_name": "com.komer"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "237407720302-jg18t1s6ivf2a4agnp0brsjg76g4ku70.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC0Dflc2mFU-HrCkGZUwhTUcZQaOHj3WD4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "237407720302-jg18t1s6ivf2a4agnp0brsjg76g4ku70.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
