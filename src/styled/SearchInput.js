@@ -14,4 +14,6 @@ export const Input = styled.TextInput`
   font-size: 16px;
   width: 90%;
   margin-left: 5px;
+  font-family: Poppins-Regular;
+  margin-top: 5px;
 `
