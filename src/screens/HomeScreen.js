@@ -5,18 +5,16 @@ import SearchInput from "../components/SearchInput"
 import PopularList from "../components/PopularList"
 import CategoryList from "../components/CategoryList"
 
-const Home = () => {
+export default function Home() {
   return (
     <SafeAreaView>
       <ScrollView>
         <TopBar />
         <SearchInput />
-        <PopularList title="Sitios Populares" />
-        <PopularList title="Comidas Populares" />
+        <PopularList title="Sitios Populares" query="popular_sites" />
+        <PopularList title="Comidas Populares" query="popular_foods" />
         <CategoryList />
       </ScrollView>
     </SafeAreaView>
   )
 }
-
-export default Home

@@ -1,5 +1,6 @@
 import "react-native-gesture-handler"
-import React from "react"
+import React, { useState, useEffect } from "react"
+import auth from "@react-native-firebase/auth"
 import { NavigationContainer } from "@react-navigation/native"
 import { createStackNavigator } from "@react-navigation/stack"
 
@@ -7,13 +8,30 @@ import { createStackNavigator } from "@react-navigation/stack"
 import LoginScreen from "../screens/LoginScreen"
 import SignupScreen from "../screens/SignupScreen"
 import HomeScreen from "../screens/HomeScreen"
+import { Spinner } from "../styled/PopularList"
 
 const AuthStack = createStackNavigator()
 const RootStack = createStackNavigator()
-const isAuth = true
 
 const App = () => {
-  if (!isAuth) {
+  const [user, setUser] = useState()
+  const [loading, setLoading] = useState(true)
+
+  const watchAuthState = user => {
+    setUser(user)
+    setLoading(false)
+  }
+  console.log(user)
+  useEffect(() => {
+    const subscriber = auth().onAuthStateChanged(watchAuthState)
+    return subscriber
+  }, [])
+
+  if (loading) {
+    return <Spinner size="large" color="#7e0000" />
+  }
+
+  if (!user) {
     return (
       <NavigationContainer>
         <AuthStack.Navigator headerMode="none">

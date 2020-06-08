@@ -6,7 +6,7 @@ export const InputControl = styled.View`
   border: 2px solid #7e0000;
   justify-content: center;
   align-items: center;
-  margin: 10px 10%;
+  margin: 10px 10% 0;
   padding: 0 15px;
   border-radius: 50px;
 `

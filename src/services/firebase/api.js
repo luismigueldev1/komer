@@ -1,12 +1,13 @@
-import db from "@react-native-firebase/firestore"
+import firestore from "@react-native-firebase/firestore"
 
-export async function getPopular({ collection }) {
-  try {
-    let popular = []
-    return await db()
-      .collection(collection)
-      .get()
-  } catch (error) {
-    return error
-  }
+export function getPopular(query) {
+  let data = []
+  let errorText = ""
+  firestore()
+    .collection(query)
+    .get()
+    .then(docs => docs.forEach(doc => data.push(doc.data())))
+    .catch(error => (errorText = error.message))
+
+  return { data, errorText }
 }

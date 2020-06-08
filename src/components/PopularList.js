@@ -6,11 +6,30 @@ import {
   Site,
   Spinner
 } from "../styled/PopularList"
+import { Text } from "react-native"
 import { SvgUri } from "react-native-svg"
+import firestore from "@react-native-firebase/firestore"
 
-export default function PopularList({ title }) {
+export default function PopularList({ title, query }) {
   const [popular, setPopular] = useState([])
+  const [error, setError] = useState(null)
   const [loading, setLoading] = useState(true)
+
+  useEffect(() => {
+    let data = []
+    firestore()
+      .collection(query)
+      .get()
+      .then(docs => {
+        docs.forEach(doc => data.push(doc.data()))
+        setPopular(data)
+        setLoading(false)
+      })
+      .catch(error => {
+        setError(error.message)
+        setLoading(false)
+      })
+  }, [])
 
   return (
     <Container>
@@ -20,11 +39,17 @@ export default function PopularList({ title }) {
         <Spinner size="large" color="#7e0000" />
       ) : (
         <SiteContainer>
-          {popular.map((site, index) => (
-            <Site color={color} key={index}>
-              <SvgUri width={50} height={50} uri={site.image} />
-            </Site>
-          ))}
+          {error && <Text> {error}</Text>}
+
+          {query == "popular_sites" ? (
+            popular.map((site, index) => (
+              <Site color={site.color} key={index}>
+                <SvgUri width={60} height={60} uri={site.image} />
+              </Site>
+            ))
+          ) : (
+            <Text>Popular Food</Text>
+          )}
         </SiteContainer>
       )}
     </Container>
