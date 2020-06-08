@@ -32,9 +32,7 @@ export default function Login({ navigation }) {
       <Container>
         <Links>
           <TouchableOpacity>
-            <LinkText active onPress={() => navigation.navigate("Login")}>
-              Iniciar Sesión
-            </LinkText>
+            <LinkText active>Iniciar Sesión</LinkText>
           </TouchableOpacity>
           <TouchableOpacity onPress={() => navigation.navigate("Signup")}>
             <LinkText>Registrarse</LinkText>

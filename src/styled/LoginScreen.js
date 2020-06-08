@@ -63,3 +63,16 @@ export const Social = styled.View`
   width: 60%;
   margin: 0 auto;
 `
+export const Terms = styled.View`
+  padding: 10px 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+`
+
+export const TextTerm = styled.Text`
+  text-align: center;
+  color: #999999;
+  font-family: Poppins-Regular;
+  margin-top: 3px;
+`
