@@ -35,21 +35,23 @@ export default function PopularList({ title, query }) {
     <Container>
       <Title>{title}</Title>
 
+      {error && <Text> {error}</Text>}
+
       {loading ? (
         <Spinner size="large" color="#7e0000" />
       ) : (
         <SiteContainer>
-          {error && <Text> {error}</Text>}
-
-          {query == "popular_sites" ? (
-            popular.map((site, index) => (
-              <Site color={site.color} key={index}>
-                <SvgUri width={60} height={60} uri={site.image} />
-              </Site>
-            ))
-          ) : (
-            <Text>Popular Food</Text>
-          )}
+          {query == "popular_sites"
+            ? popular.map((site, index) => (
+                <Site color={site.color} key={index}>
+                  <SvgUri width={60} height={60} uri={site.image} />
+                </Site>
+              ))
+            : popular.map((site, index) => (
+                <Site color={site.color} key={index}>
+                  <SvgUri width={60} height={60} uri={site.image} />
+                </Site>
+              ))}
         </SiteContainer>
       )}
     </Container>

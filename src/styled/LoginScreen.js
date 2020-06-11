@@ -45,6 +45,20 @@ export const Button = styled.TouchableOpacity`
   padding: 10px;
   background-color: #7e0000;
   border-radius: 30px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`
+
+export const EmulatedButton = styled.View`
+  padding: 5px;
+  background-color: #7e0000;
+  border-radius: 30px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `
 export const ButtonText = styled.Text`
   text-transform: uppercase;
@@ -64,7 +78,6 @@ export const Social = styled.View`
   margin: 0 auto;
 `
 export const Terms = styled.View`
-  padding: 10px 0;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -75,4 +88,12 @@ export const TextTerm = styled.Text`
   color: #999999;
   font-family: Poppins-Regular;
   margin-top: 3px;
+`
+
+export const TextError = styled.Text`
+  position: relative;
+  font-family: Poppins-Italic;
+  color: #ed4337;
+  padding-left: 10px;
+  font-size: 12px;
 `
